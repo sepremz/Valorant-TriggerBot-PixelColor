@@ -76,6 +76,8 @@ stayon:
 SoundBeep, 300, 200
 settimer, loop1, 100
 settimer, loop2, off
+settimer, loop3, off
+
 GuiControl,2: hide,B1
 GuiControl,2: hide,C1
 GuiControl,2: hide,B2
@@ -88,6 +90,8 @@ holdmode:
 SoundBeep, 300, 200
 settimer, loop1, off
 settimer, loop2, 100
+settimer, loop3, off
+
 GuiControl,2: hide,B1
 GuiControl,2: hide,C1
 GuiControl,2: show,B2
@@ -99,7 +103,9 @@ return
 holdmode2:
 SoundBeep, 300, 200
 settimer, loop1, off
-settimer, loop2, 100
+settimer, loop2, off
+settimer, loop3, 100
+
 GuiControl,2: hide,B1
 GuiControl,2: hide,C1
 GuiControl,2: show,B2
@@ -113,6 +119,7 @@ SoundBeep, 300, 200
 settimer, loop1, off
 settimer, loop2, off
 settimer, loop3, off
+
 GuiControl,2: show,B1
 GuiControl,2: show,C1
 GuiControl,2: hide,B2
