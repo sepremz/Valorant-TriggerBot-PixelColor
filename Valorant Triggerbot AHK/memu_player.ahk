@@ -13,24 +13,43 @@ SendMode Input
 CoordMode, Pixel, Screen
 SoundBeep, 300, 200
 SoundBeep, 400, 200
-
-;HOTKEYS
-key_stay_on	:= 	"F1"		; self explanatory		
+;-------------------------------------------------------
+;HOTKEYS + VARIABLE DEFINITIONS
+;-------------------------------------------------------
+key_stay_on	:= 	"F1"		    ; self explanatory		
 key_hold_mode	:= 	"F2"		; scan will only scan if "key_hold" is pressed
 key_fastclick 	:= 	"F3"		; self explanatory (on/off beep sound only)
-key_fastclickmove := "F4"       ;scandownrand
-key_off		:= 	"F5"		; self explanatory	
+key_fastclickmove := "F4"       ; scandownrand
+key_off		:= 	"F5"		    ; self explanatory	
 key_gui_hide	:=	"Home"		; hides gui (graphical user interface)		
-key_exit	:= 	"End"		; self explanatory		
-key_hold	:=	"LAlt" 	; key that you hold to scan (example "T") 	
+key_exit	:= 	"End"		    ; self explanatory		
+key_hold	:=	"LAlt"      	; key that you hold to scan (example "T") 	
+key_hold_2 := "RAlt"            ;opposide test
 
-;SETTINGS
-pixel_box	:=	4		; Keep between min 3 and max 8		
-pixel_sens	:=	25	; higher/lower = more/less color sensitive 		
-pixel_color	:=	0xFEFE40	; yellow="0xFEFE40", purple="0xA145A3"
-tap_time	:=	20		; Delay in ms between shots when triggered
+hotkey, %key_stay_on%, stayon
+hotkey, %key_hold_mode%, holdmode
+hotkey, %key_off%, offloop
+hotkey, %key_gui_hide%, guihide
+hotkey, %key_exit%, terminate
+hotkey, %key_fastclick%, fastclick
+hotkey, %key_hold_2%, holdmode2
+;hotkey, %key_fastclickmove%, fastclickmove
 
-;DO NOT TOUCH?
+goleftCharacter:= A_ScreenWidth/2-pixel_box
+gorightCharacter:= A_ScreenWidth/2+pixel_box
+gotopCharacter:= A_ScreenHeight/2-pixel_box
+bottombound:= A_ScreenHeight/2+pixel_box 
+;-------------------------------------------------------
+;SETTINGS - STRENGTH
+;-------------------------------------------------------
+pixel_box	:=	4		        ; Keep between min 3 and max 8		
+pixel_sens	:=	25	            ; higher/lower = more/less color sensitive 		
+pixel_color	:=	0xFEFE40	    ; yellow="0xFEFE40", purple="0xA145A3"
+tap_time	:=	20		        ; Delay in ms between shots when triggered
+
+;-------------------------------------------------------
+;DO NOT TOUCH? GUI
+;-------------------------------------------------------
 Gui,2:Font,Cdefault,Fixedsys
 Gui,2:Color,Black
 Gui,2:Color, EEAA99
@@ -43,21 +62,8 @@ Gui,2:Add,Text, xp yp wp hp cYellow BackgroundTrans Center 0x200 vB1 gStart,OFF
 Gui,2: Show, x10 y1 w200 h60
 Gui 2:+LastFound +ToolWindow +AlwaysOnTop -Caption
 WinSet, TransColor, EEAA99
-2Guiescape:
-2Guiclose:
-goleftCharacter:= A_ScreenWidth/2-pixel_box
-gorightCharacter:= A_ScreenWidth/2+pixel_box
-gotopCharacter:= A_ScreenHeight/2-pixel_box
-bottombound:= A_ScreenHeight/2+pixel_box 
-hotkey, %key_stay_on%, stayon
-hotkey, %key_hold_mode%, holdmode
-hotkey, %key_off%, offloop
-hotkey, %key_gui_hide%, guihide
-hotkey, %key_exit%, terminate
-hotkey, %key_fastclick%, fastclick
-hotkey, %key_fastclickmove%, fastclickmove
-
 return
+;-------------------------------------------------------
 start:
 gui,2:submit,nohide
 terminate:
@@ -65,10 +71,11 @@ SoundBeep, 300, 200
 SoundBeep, 200, 200
 Sleep 400
 exitapp
+;-------------------------------------------------------
 stayon:
 SoundBeep, 300, 200
-settimer, loop2, off
 settimer, loop1, 100
+settimer, loop2, off
 GuiControl,2: hide,B1
 GuiControl,2: hide,C1
 GuiControl,2: hide,B2
@@ -76,6 +83,7 @@ GuiControl,2: hide,C2
 GuiControl,2: show,B3
 GuiControl,2: show,C3
 return
+;-------------------------------------------------------
 holdmode:
 SoundBeep, 300, 200
 settimer, loop1, off
@@ -87,10 +95,24 @@ GuiControl,2: show,C2
 GuiControl,2: hide,B3
 GuiControl,2: hide,C3
 return
+;-------------------------------------------------------
+holdmode2:
+SoundBeep, 300, 200
+settimer, loop1, off
+settimer, loop2, 100
+GuiControl,2: hide,B1
+GuiControl,2: hide,C1
+GuiControl,2: show,B2
+GuiControl,2: show,C2
+GuiControl,2: hide,B3
+GuiControl,2: hide,C3
+return
+;-------------------------------------------------------
 offloop:
 SoundBeep, 300, 200
 settimer, loop1, off
 settimer, loop2, off
+settimer, loop3, off
 GuiControl,2: show,B1
 GuiControl,2: show,C1
 GuiControl,2: hide,B2
@@ -98,6 +120,7 @@ GuiControl,2: hide,C2
 GuiControl,2: hide,B3
 GuiControl,2: hide,C3
 return
+;-------------------------------------------------------
 guihide:
 GuiControl,2: hide,B1
 GuiControl,2: hide,C1
@@ -106,6 +129,7 @@ GuiControl,2: hide,C2
 GuiControl,2: hide,B3
 GuiControl,2: hide,C3
 return
+;-------------------------------------------------------
 
 loop1:
 PixelSearch()
@@ -118,11 +142,11 @@ PixelSearch()
 return
 
 loop3:
-While GetKeyState(key_hold, "P"){
+While GetKeyState(key_hold2, "P"){
 PixelSearch2()
 }
 return
-
+;-------------------------------------------------------
 fastclick:
 SoundBeep, 300, 200
 toggle := !toggle
@@ -131,18 +155,14 @@ return
 *~$LButton::
 sleep 100
 While GetKeyState("LButton", "P"){
-random, x, 10, 255 ;random adjustable delay
 Click
-sleep x
-newY := 5
-MouseMove,1, %newY%
+sleep 10
 }
 return
-#if
-
+;-------------------------------------------------------
 PixelSearch() {
 global
-PixelSearch, MichaelJackson, MikeTyson, leftbound, topbound, rightbound, bottombound, pixel_color, pixel_sens, Fast RGB
+PixelSearch, FoundX, FoundY, leftbound, topbound, rightbound, bottombound, pixel_color, pixel_sens, Fast RGB
 If !(ErrorLevel)
 {
 If !GetKeyState("LButton")
@@ -153,14 +173,7 @@ sleep %tap_time%
 }
 return
 }
-
-fastclickmove:
-SoundBeep, 300, 200
-toggle := !toggle
-return
-#if toggle
-
-While GetKeyState("LButton", "P"){
+;-------------------------------------------------------
 PixelSearch2() {
 global
 PixelSearch, MichaelJackson, MikeTyson, goleftCharacter, gotopCharacter, gorightCharacter, gobottomCharacter, move_color, move_sens, Fast RGB
