@@ -17,7 +17,21 @@ Esc::ExitApp
 *~$LButton::
 sleep 100
 While GetKeyState("LButton", "P"){
-random, x, 30, 350
+
+random, x, 100, 250
+random, y, 150, 200
+random, n, 50,200
+random, z, 1 , 3
+
+if (z == 1) {
+sleep x
+}
+if(z == 2) {
+sleep y
+}
+if( z == 3){
+sleep b
+}
 Click
 sleep x
 }
