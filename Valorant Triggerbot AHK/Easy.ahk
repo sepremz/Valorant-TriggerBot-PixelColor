@@ -18,8 +18,6 @@ Esc::ExitApp
 sleep 100
 While GetKeyState("LButton", "P"){
 random, x, 30, 350
-Send, a
-Send, d
 Click
 sleep x
 }
