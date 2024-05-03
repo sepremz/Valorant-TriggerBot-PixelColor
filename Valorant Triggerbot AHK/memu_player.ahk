@@ -188,10 +188,22 @@ PixelSearch, MichaelJackson, MikeTyson, goleftCharacter, gotopCharacter, goright
 If !(ErrorLevel)
 {
 If !GetKeyState("LButton")
-{
+
 click
-random, x, 10, 255
+random, x, 200, 350
+random, y, 250, 300
+random, n, 100,300
+random, z, 1 , 3
+
+if (z == 1) {
 sleep x
+}
+if(z == 2) {
+sleep y
+}
+if( z == 3){
+sleep b
+}
 
 }
 }
