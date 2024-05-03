@@ -192,8 +192,7 @@ If !GetKeyState("LButton")
 click
 random, x, 10, 255
 sleep x
-newY := 5
-MouseMove,1, %newY%
+
 }
 }
 return
