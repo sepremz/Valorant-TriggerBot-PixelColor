@@ -9,6 +9,7 @@ SetMouseDelay, -1
 SetDefaultMouseSpeed, 0
 SetWinDelay, -1
 SetControlDelay, -1
+#HotkeyInterval 1000
 SendMode Input
 CoordMode, Pixel, Screen
 SoundBeep, 300, 200
@@ -16,17 +17,15 @@ SoundBeep, 400, 200
 ;-------------------------------------------------------
 ;HOTKEYS + VARIABLE DEFINITIONS
 ;-------------------------------------------------------
-key_stay_on	:= 	"F1"		    ; self explanatory		
-key_hold_mode	:= 	"F2"		; scan will only scan if "key_hold" is pressed
-key_holdmode2 :=    "F3"
-key_fastclick 	:= 	"F4"		; self explanatory (on/off beep sound only)
-key_off		:= 	"F5"		    ; self explanatory	
-key_gui_hide	:=	"Home"		; hides gui (graphical user interface)		
-key_exit	:= 	"End"		    ; self explanatory		
-key_hold	:=	"LAlt"      	; key that you hold to scan (example "T") 	
-key_hold_2 := "RAlt"            ; opposide test
-
-
+key_stay_on	    := "F1"		        ; self explanatory		
+key_hold_mode	:= "F2"     		; scan will only scan if "key_hold" is pressed
+;key_holdmode2   := "F3"             ; second
+key_fastclick 	:= "F3"		        ; self explanatory (on/off beep sound only)
+key_off		    := "F4"		        ; self explanatory	
+key_gui_hide	:= "Home"	    	; hides gui (graphical user interface)		
+key_exit	    := "End"		    ; self explanatory		
+key_hold	    := "LAlt"        	; key that you hold to scan (example "T") 	
+;key_hold_2      := "RAlt"           ; opposide test
 ;-------------------------------------------------------
 ;SETTINGS - STRENGTH
 ;-------------------------------------------------------
@@ -34,8 +33,6 @@ pixel_box	:=	4		        ; Keep between min 3 and max 8
 pixel_sens	:=	25	            ; higher/lower = more/less color sensitive 		
 pixel_color	:=	0xFEFE40	    ; yellow="0xFEFE40", purple="0xA145A3"
 tap_time	:=	20		        ; Delay in ms between shots when triggered
-
-
 ;-------------------------------------------------------
 ;DO NOT TOUCH? GUI
 ;-------------------------------------------------------
@@ -51,11 +48,8 @@ Gui,2:Add,Text, xp yp wp hp cYellow BackgroundTrans Center 0x200 vB1 gStart,OFF
 Gui,2: Show, x10 y1 w200 h60
 Gui 2:+LastFound +ToolWindow +AlwaysOnTop -Caption
 WinSet, TransColor, EEAA99
-
-
-2Guiescape:
-2Guiclose:
-
+;2Guiescape:
+;2Guiclose:
 goleftCharacter:= A_ScreenWidth/2-pixel_box
 gorightCharacter:= A_ScreenWidth/2+pixel_box
 gotopCharacter:= A_ScreenHeight/2-pixel_box
@@ -63,12 +57,12 @@ bottombound:= A_ScreenHeight/2+pixel_box
 
 hotkey, %key_stay_on%, stayon
 hotkey, %key_hold_mode%, holdmode
-hotkey, %key_holdmode2%, holdmode2
 hotkey, %key_off%, offloop
 hotkey, %key_gui_hide%, guihide
 hotkey, %key_exit%, terminate
-Hotkey, %key_fastclick%, fastclick
-;hotkey, %key_fastclickmove%, fastclickmove
+Hotkey, % key_fastclick, fastclick
+;hotkey, %key_holdmode2%, holdmode2
+
 return
 
 start:
@@ -78,8 +72,8 @@ SoundBeep, 300, 200
 SoundBeep, 200, 200
 Sleep 400
 exitapp
-;-------------------------------------------------------
-stayon:
+
+F1::
 SoundBeep, 300, 200
 settimer, loop1, 100
 settimer, loop2, off
