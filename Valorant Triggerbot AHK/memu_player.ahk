@@ -1,4 +1,4 @@
-﻿#NoEnv 
+﻿﻿#NoEnv 
 #persistent
 #MaxThreadsPerHotkey 2
 #KeyHistory 0
