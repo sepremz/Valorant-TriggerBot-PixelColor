@@ -22,7 +22,6 @@ https://www.autohotkey.com/
 - **F2**: Only Autoaim.
 - **F3**: Only Triggerbot.
 - **F4**: Autoaim + Triggerbot.
-- 
 ## Customization
 - You can modify the hotkeys by editing the script file. Refer to AutoHotkey's KeyList for custom key names, you can get any key in this website:
 https://www.autohotkey.com/docs/v1/KeyList.htm
