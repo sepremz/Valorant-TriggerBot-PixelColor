@@ -148,12 +148,6 @@ While GetKeyState(key_hold, "P"){
 PixelSearch()
 }
 return
-
-loop3:
-While GetKeyState(key_hold2, "P"){
-PixelSearch2()
-}
-return
 ;-------------------------------------------------------
 fastclick:
 SoundBeep, 300, 200
@@ -170,41 +164,13 @@ return
 ;-------------------------------------------------------
 PixelSearch() {
 global
-PixelSearch, MichaelJackson, MikeTyson, goleftCharacter, gotopCharacter, gorightCharacter, gobottomCharacter, move_color, move_sens, Fast RGB
+PixelSearch, FoundX, FoundY, leftbound, topbound, rightbound, bottombound, pixel_color, pixel_sens, Fast RGB
 If !(ErrorLevel)
 {
 If !GetKeyState("LButton")
 {
 click
 sleep %tap_time%
-}
-}
-return
-}
-;-------------------------------------------------------
-PixelSearch2() {
-global
-PixelSearch, MichaelJackson, MikeTyson, goleftCharacter, gotopCharacter, gorightCharacter, gobottomCharacter, move_color, move_sens, Fast RGB
-If !(ErrorLevel)
-{
-If !GetKeyState("LButton")
-
-click
-random, x, 200, 350
-random, y, 250, 300
-random, n, 100,300
-random, z, 1 , 3
-
-if (z == 1) {
-sleep x
-}
-if(z == 2) {
-sleep y
-}
-if( z == 3){
-sleep b
-}
-
 }
 }
 return
