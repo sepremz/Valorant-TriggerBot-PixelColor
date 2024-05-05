@@ -13,12 +13,12 @@ SendMode Input
 CoordMode, Pixel, Screen
 
 ;---var---
-n := 4 ;box	       
-c1	:=	0xFEFE40 ; yellow="0xFEFE40", purple="0xA145A3"
-x1:= A_ScreenWidth/2-n ;left
-x2:= A_ScreenHeight/2-n ;top
-x3:= A_ScreenWidth/2+n ;right
-x4:= A_ScreenHeight/2+n ;bottom
+n1:= 4 ;box	       
+c1:= 0xFEFE40 ; yellow="0xFEFE40", purple="0xA145A3"
+x1:= A_ScreenWidth/2-n1 ;left
+x2:= A_ScreenHeight/2-n1 ;top
+x3:= A_ScreenWidth/2+n1 ;right
+x4:= A_ScreenHeight/2+n1 ;bottom
 
 ;---
 F1::
@@ -50,6 +50,8 @@ loop1:
 sleep 100
 While GetKeyState("LButton", "P"){
 random, ta2, 250, 350
+random, n2, 10, 20
+ta2 += n2
 sleep %ta2%
 Click
 }
@@ -58,7 +60,8 @@ loop2:
 PixelSearch()
 return
 random, ta1, 250, 350
-tap_time += n
+random, n3, 10, 20
+ta1 += n3
 PixelSearch(){
 PixelSearch, p0, p1, x1, x2, x3, x4, c1, 25, Fast RGB
 
@@ -70,4 +73,4 @@ return
 }
 
 ;---key---
-Esc::ExitApp
+Esc::ExitApp ;panic
