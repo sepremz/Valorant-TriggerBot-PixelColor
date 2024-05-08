@@ -17,6 +17,13 @@ https://www.autohotkey.com/
 - Double-click on the script file to run it.
 
 ## Usage
+**F1**: Activate Triggerbot.
+**F2**: Triggerbot only activates when the specified "Hold_Key" is pressed.
+**F3**: Toggle Autofire on/off.
+**F4**: Deactivate Triggerbot.
+**Home**: Hide GUI (Graphical User Interface).
+**End**: Exit the script. 
+## Usage for v2 script
 
 - **F1**: Deactivate.
 - **F2**: Only Autoaim.
