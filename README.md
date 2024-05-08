@@ -1,5 +1,6 @@
 ## Valorant Triggerbot README
 This script enables a triggerbot for Valorant using AutoHotkey.
+edit: there's 2 scripts now, main one with name "memu_player" only triggerbot, and the second one with name "memu_player v2" trigger + aim.
 
 ## Notes
 
