@@ -1,5 +1,6 @@
 ## Valorant Triggerbot README
-This script enables a triggerbot for Valorant using AutoHotkey.
+- This script enables a triggerbot for Valorant using AutoHotkey.
+- **edit**: there's 2 scripts now, main one with name "memu_player" only triggerbot, and the second one with name "memu_player v2" trigger + aim.
 
 ## Notes
 
@@ -17,14 +18,19 @@ https://www.autohotkey.com/
 - Double-click on the script file to run it.
 
 ## Usage
-
-- **F1**: Activate Triggerbot.
+- **F1**:: Activate Triggerbot.
 - **F2**: Triggerbot only activates when the specified "Hold_Key" is pressed.
 - **F3**: Toggle Autofire on/off.
 - **F4**: Deactivate Triggerbot.
 - **Home**: Hide GUI (Graphical User Interface).
 - **End**: Exit the script.
 
+## Usage for v2 script
+
+- **F1**: Deactivate.
+- **F2**: Only Autoaim.
+- **F3**: Only Triggerbot.
+- **F4**: Autoaim + Triggerbot.
 ## Customization
 - You can modify the hotkeys by editing the script file. Refer to AutoHotkey's KeyList for custom key names, you can get any key in this website:
 https://www.autohotkey.com/docs/v1/KeyList.htm

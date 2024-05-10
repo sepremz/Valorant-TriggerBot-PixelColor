@@ -1,4 +1,4 @@
-#NoEnv 
+﻿﻿#NoEnv 
 #persistent
 #MaxThreadsPerHotkey 2
 #KeyHistory 0
@@ -21,13 +21,13 @@ key_fastclick 	:= 	"F3"		; self explanatory (on/off beep sound only)
 key_off		:= 	"F4"		; self explanatory	
 key_gui_hide	:=	"Home"		; hides gui (graphical user interface)		
 key_exit	:= 	"End"		; self explanatory		
-key_hold	:=	"LALT" 	; key that you hold to scan (example "T") 	
+key_hold	:=	"LAlt" 	; key that you hold to scan (example "T") 	
 
 ;SETTINGS
-pixel_box	:=	3		; Keep between min 3 and max 8		
-pixel_sens	:=	20	; higher/lower = more/less color sensitive 		
+pixel_box	:=	4		; Keep between min 3 and max 8		
+pixel_sens	:=	25	; higher/lower = more/less color sensitive 		
 pixel_color	:=	0xA145A3	; yellow="0xFEFE40", purple="0xA145A3"
-tap_time	:=	100		; Delay in ms between shots when triggered
+tap_time	:=	10		; Delay in ms between shots when triggered
 
 ;DO NOT TOUCH?
 Gui,2:Font,Cdefault,Fixedsys
