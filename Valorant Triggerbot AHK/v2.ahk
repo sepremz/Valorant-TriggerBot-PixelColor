@@ -46,7 +46,9 @@ return
 ;---loop---
 
 loop2:
+While GetKeyState(key_hold, "P"){
 pixelSearch()
+}
 return
 
 loop1:
