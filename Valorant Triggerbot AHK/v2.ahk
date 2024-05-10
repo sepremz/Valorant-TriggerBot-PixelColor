@@ -44,6 +44,11 @@ settimer, loop2, 10
 return
 
 ;---loop---
+
+loop2:
+pixelSearch()
+return
+
 loop1:
 
 *~$LButton::
@@ -57,9 +62,7 @@ sleep %ta2%
 return
 }
 
-
-loop2:
-PixelSearch()
+PixelSearch() {
 return
 random, ta1, 250, 350
 random, n3, 10, 20
@@ -70,6 +73,7 @@ PixelSearch, p0, p1, x1, x2, x3, x4, c1, 25, Fast RGB
 If !(ErrorLevel) {
 Click
 sleep %ta1%
+}
 }
 return
 }
