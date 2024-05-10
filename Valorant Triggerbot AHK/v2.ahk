@@ -69,7 +69,6 @@ return
 random, ta1, 250, 350
 random, n3, 10, 20
 ta1 += n3
-PixelSearch(){
 PixelSearch, p0, p1, x1, x2, x3, x4, c1, 25, Fast RGB
 
 If !(ErrorLevel) {
