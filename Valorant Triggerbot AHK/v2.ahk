@@ -77,7 +77,6 @@ sleep %ta1%
 }
 }
 return
-}
 
 ;---key---
 Esc::ExitApp ;panic
