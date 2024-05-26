@@ -13,7 +13,7 @@ SendMode Input
 CoordMode, Pixel, Screen
 SoundBeep, 300, 200
 SoundBeep, 400, 200
-
+;v2.1
 ;HOTKEYS
 key_stay_on	:= 	"F1"		; self explanatory		
 key_hold_mode	:= 	"F2"	; scan will only scan if "key_hold" is pressed
@@ -136,8 +136,8 @@ If !(ErrorLevel)
 {
 If !GetKeyState("LButton")
 {
-click
 random, tap_time, %lowerreact%, %upperreact%
+click
 sleep %tap_time%
 }
 }
