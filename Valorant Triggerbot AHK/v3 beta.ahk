@@ -1,6 +1,6 @@
 #NoEnv 
 #persistent
-#MaxThreadsPerHotkey 2
+#MaxThreadsPerHotkey 8
 #KeyHistory 0
 ListLines Off
 SetBatchLines, -1
@@ -169,7 +169,7 @@ PixelSearch()
 return
 
 ;---------------
-#if
+
 Fastclick() {
 global
 while (GetKeyState("LButton", "P")){
@@ -180,7 +180,7 @@ sleep %tapping%
 return
 }
 ;---------------
-#if
+
 Burst() {
 global
 sleep, 10
@@ -196,7 +196,7 @@ sleep, randd
 return
 }
 ;---------------
-#if
+
 PixelSearch() {
 global
 PixelSearch, FoundX, FoundY, leftbound, topbound, rightbound, bottombound, pixel_color, pixel_sens, Fast RGB
