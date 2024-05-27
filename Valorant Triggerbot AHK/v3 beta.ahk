@@ -72,7 +72,6 @@ start:
 gui,2:submit,nohide
 ;----------------------------
 stayon:
-
 SoundBeep, 300, 200
 settimer, loop1, 100
 settimer, loop2, off
@@ -202,7 +201,8 @@ PixelSearch, FoundX, FoundY, leftbound, topbound, rightbound, bottombound, pixel
 If !(ErrorLevel)
 {
 If !GetKeyState("LButton", "P") {
-random, tap_time, %lowerreact%, %upperreact%
+
+random, tap_time, %lowerreacttb%, %upperreacttb%
 click
 sleep %tap_time%
 }
