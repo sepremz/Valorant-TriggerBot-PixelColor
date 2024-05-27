@@ -65,9 +65,6 @@ burstbullettimel:= 20
 burstbullettimeu:= 30
 bursttimingl    := 150
 bursttimingu    := 170
-
-
-
 return
 start:
 gui,2:submit,nohide
@@ -202,7 +199,7 @@ global
 PixelSearch, FoundX, FoundY, leftbound, topbound, rightbound, bottombound, pixel_color, pixel_sens, Fast RGB
 If !(ErrorLevel)
 {
-If !GetKeyState("LButton")
+If !GetKeyState("LButton", "P"){
 {
 random, tap_time, %lowerreact%, %upperreact%
 click
