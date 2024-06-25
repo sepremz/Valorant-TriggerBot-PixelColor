@@ -87,7 +87,7 @@ return
 holdmode:
 SoundBeep, 300, 200
 settimer, loop1, off
-settimer, loop2, 100
+settimer, loop2, 10
 GuiControl,2: hide,B1
 GuiControl,2: hide,C1
 GuiControl,2: show,B2
@@ -141,7 +141,7 @@ GuiControl,2: hide,C3
 return
 ;------------------------
 *~$LButton::
-While GetKeyState("LButton", "P") && !GetKeyState("a") && !GetKeyState("s") && !GetKeyState("d") && !GetKeyState("w") {
+While True { ;GetKeyState("LButton", "P") && !GetKeyState("a") && !GetKeyState("s") && !GetKeyState("d") && !GetKeyState("w") {
 if (x == 2) {
 Fastclick()
 return
