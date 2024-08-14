@@ -25,18 +25,18 @@ key_gui_hide	:=	"F7"	; hides gui (graphical user interface)
 key_hold	    :=	"LALT" 	; key that you hold to scan (example "T") 	
 
 ;SETTINGS
-pixel_box	    := 3		    ; Keep between min 3 and max 8		
-pixel_sens	    := 20	        ; higher/lower = more/less color sensitive 		
-pixel_color	    := 0xA145A3     ; yellow="0xFEFE40", purple="0xA145A3" 
-lowerreacttb    := 160          ; lowest delay tb ; for best use 150, 200, for more human 160, 300, and rage 10,11
-upperreacttb    := 300          ; highest delay tb
-lowerspam       := 10           ; lowest delay slow   
-upperspam       := 20           ; highest delay fast
-burstcount      := 3            ; x times
-burstbullettimel:= 20
-burstbullettimeu:= 30
-bursttimingl    := 150
-bursttimingu    := 170
+pixel_box	    := 6		    ; Keep between min 3 and max 8		
+pixel_sens	    := 70	        ; higher/lower = more/less color sensitive 		
+pixel_color	    := 0xFEFE40     ; yellow="0xFEFE40", purple="0xA145A3" 
+lowerreacttb    := 11          ; lowest delay tb ; for best use 150, 200, for more human 160, 300, and rage 10,11
+upperreacttb    := 11          ; highest delay tb
+lowerspam       := 0           ; lowest delay slow   
+upperspam       := 0           ; highest delay fast
+burstcount      := 1000            ; x times
+burstbullettimel:= 0
+burstbullettimeu:= 0
+bursttimingl    := 0
+bursttimingu    := 0
 
 ;DO NOT TOUCH?
 Gui,2:Font,Cdefault,Fixedsys
